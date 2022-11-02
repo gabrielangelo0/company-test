@@ -30,14 +30,11 @@ export default function FormCardCompany () {
     }
 
     const cnpjValue = watch('cnpj');
-    useEffect(() => {
-        setValue('cnpj', normalizeCNPJNumber(cnpjValue))
-    }, [cnpjValue]);
-
     const phoneValue = watch('phone');
     useEffect(() => {
+        setValue('cnpj', normalizeCNPJNumber(cnpjValue)),
         setValue('phone', normalizePhoneNumber(phoneValue))
-    }, [phoneValue]);
+    }, [cnpjValue, phoneValue]);
 
     return (
         <FormCardContainer>

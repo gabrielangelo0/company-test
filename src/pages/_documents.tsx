@@ -1,7 +1,7 @@
 import Document, { DocumentContext, Html, Main, NextScript, Head } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
-export default class MyDocument extends Document {
+class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet()
     const originalRenderPage = ctx.renderPage
@@ -35,3 +35,5 @@ export default class MyDocument extends Document {
     )
     }
 }
+
+export default MyDocument;

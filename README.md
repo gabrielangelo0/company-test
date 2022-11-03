@@ -53,3 +53,7 @@ Nessa ultima tela, é exibido feito um filtro pela API, para exibir os pontos ba
 Além de tudo isso, tive o cuidado com a experiência do usuário, então foi adicionado `toasts` e `nextjs-progressbar` para informar o processo e progresso das solicitações da página.
 
 No mais é isso, desde já agradeço a oportunidade e espero fazer a diferença na equipe de vocês!
+
+<br><br>
+<a href='https://company-test-zuof.vercel.app/' target='_blank'>![deploy](https://user-images.githubusercontent.com/102261788/199635152-ecf7f18d-4e53-4b25-b73c-14ab5d6177b9.png)
+</a>

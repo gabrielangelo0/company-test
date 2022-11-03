@@ -1,34 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Teste técnico - Ponto GO
 
-## Getting Started
+Objetivos:
+- Criar uma nova empresa através da API (Register New Company)
+- Criar um novo colaborador para a respectiva empresa através da API (Register New Employees)
+- Bater um ponto no horário de 15:00 no dia 26/10/2022 para o respectivo colaborador (Add Point)
+- Pegar os pontos batidos do dia 26/10/2022 (Get Points of a Day)
 
-First, run the development server:
+### Tecnologias utilizadas: <br>
+Framework escolhido: `NextJs` <br>
+Tipagens: `typescript` <br>
+Para estilizações: `styled-components` <br>
+Para consumo de dados: `axios` <br>
+Formatação de dados: `date-fns` <br>
+Barra de progresso de dados: `nextjs-progressbar` <br>
+Biblioteca de ícones: `phosphor-react` <br>
+Formulários: `react-hook-form` <br>
+Toasts: `react-toastify` <br>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### Resumo:
+Para melhorar a experiência do usuário, foi escolhido trabalhar com um fluxo de rotas dinâmicas fornecidas pelo Next `useRouter`, na qual a aplicação é divididas por etapas, em que o usuário é redirecionado automaticamente para a próxima página após o cadastro.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Inicialmente, foi necessário consumir uma API da empresa, decidi trabalhar com o `axios`, tomando o cuidado de evitar repetições, todos os parâmetros que se repetiam foi alocado em um só local (em services). Além disso, é preciso ressaltar o cuidado em proteger a integridade do caminho URL da API, então foi armazenado no na pasta `.env.local`.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Além de todas estilizações com `Styled-Components` e todo o cuidado com a responsividade.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## 1ª Tela - Register New Company
+![image](https://user-images.githubusercontent.com/102261788/199632508-b84d49ce-495f-47b6-ab9d-4b15009cc7f0.png)
+![image](https://user-images.githubusercontent.com/102261788/199634625-9a1991e9-2cdb-4ca8-a41e-0ed275e69425.png)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+Nessa página foi utilizado `react-hook-form` para trabalhar com os dados recebidos como formulário, tais como: validações de segurança, performance da página para evitar carregamentos desnecessários.
 
-To learn more about Next.js, take a look at the following resources:
+E foi consumido dados da API, utilizando `axios` para enviar (POST) os dados recebidos pelo formulário.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![image](https://user-images.githubusercontent.com/102261788/199632737-39b3cb5e-c84a-4455-a295-9fc9997d7f2b.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 2ª Tela - Register New Employees
+![image](https://user-images.githubusercontent.com/102261788/199633048-be8a2779-8548-46fe-90bd-fb53b1667c83.png)
 
-## Deploy on Vercel
+Nessa tela, é necessário cadastrar um funcionário ou colaborador na devida empresa cadastrada, então para isso é enviado através das rotas, os dados recebidos pelo formulário anterior. Para esses formulários, foi preciso estar bem atento aos dados que o banco de dados aceita, dito isso, foi necessário passar as datas para `ISOString` e simples máscaras de inputs para evitar erros no cadastro.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 3ª Tela - Add Point
+![image](https://user-images.githubusercontent.com/102261788/199633643-3df9ca8b-441a-476f-92ee-09448d90a28c.png)
+Nessa tela é exibido as informações do usuário e da empresa cadastrada e seu devido ID, utilizando `useRouter` e `axios.get` `axios.post` para enviar informações para a próxima página, que no caso seria a informação de dados do ponto do dia 26-10-2022 às 15:00 como solicitado no teste.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 4ª Tela - Get Points of a Day
+![image](https://user-images.githubusercontent.com/102261788/199634156-5454fa66-2e7c-4be6-a319-94e5a3de542f.png)
+
+Nessa ultima tela, é exibido feito um filtro pela API, para exibir os pontos batidos no dia 26-10-2022, foi necessário tratar os dados para mostrar ao usuário final, para isso foi utilizado `date-fns` para tratar os dados de data e hora recebidos.
+
+
+Além de tudo isso, tive o cuidado com a experiência do usuário, então foi adicionado `toasts` e `nextjs-progressbar` para informar o processo e progresso das solicitações da página.
+
+No mais é isso, desde já agradeço a oportunidade e espero fazer a diferença na equipe de vocês!
